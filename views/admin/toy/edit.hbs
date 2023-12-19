@@ -1,0 +1,48 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body { font-family: Arial, sans-serif; margin: 0; padding: 0;
+      background-color: #f4f4f4; } main { max-width: 600px; margin: 50px auto;
+      background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0
+      10px rgba(0, 0, 0, 0.1); } form { display: flex; flex-direction: column; }
+      h1 { font-size: 24px; margin-bottom: 20px; } input[type="text"],
+      input[type="url"], select { width: 100%; padding: 10px; margin-bottom:
+      15px; box-sizing: border-box; } img { max-width: 100%; height: auto;
+      margin-bottom: 15px; } input[type="submit"] { background-color: #4caf50;
+      color: #fff; padding: 10px 15px; border: none; border-radius: 4px; cursor:
+      pointer; font-size: 16px; } input[type="submit"]:hover { background-color:
+      #45a049; }
+
+    </style>
+    <title>Website Title</title>
+  </head>
+  <body>
+    <main>
+      <form action="/toy/edit/{{toy._id}}" method="post">
+        <h1>Edit Toy</h1>
+        Name:
+        <input type="text" name="name" id="" required value="{{toy.name}}" />
+        <br />
+        Price:
+        <input type="text" name="price" id="" required value="{{toy.price}}" />
+        <br />
+        Image:
+        <input type="url" name="image" id="" required value="{{toy.image}}" />
+        <br />
+        <img src="{{toy.image}}" alt="" width="220" height="220" />
+        <br />
+        Category:
+        <select name="category">
+          {{#each categories}}
+            <option value="{{_id}}"> {{name}}</option>
+          {{/each}}
+        </select>
+        <br /><br />
+        <input type="submit" value="Edit" />
+      </form>
+    </main>
+
+  </body>
+</html>
